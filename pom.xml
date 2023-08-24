@@ -2,12 +2,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.tkd.sytem.design</groupId>
-	<artifactId>system-design</artifactId>
+	<groupId>com.tkd.datastructure</groupId>
+	<artifactId>data-structure</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>system-design</name>
+	<name>data-structure</name>
+	<packaging>jar</packaging>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
