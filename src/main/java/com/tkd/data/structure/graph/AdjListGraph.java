@@ -28,6 +28,30 @@ public class AdjListGraph<T> {
 		});
 	}
 
+	public void addEdgeUnDirected(T source, T destination) {
+		adjList.compute(source, (k, v) -> {
+			if (v == null) {
+				List<T> list = new ArrayList<>();
+				list.add(destination);
+				return list;
+			} else {
+				v.add(destination);
+				return v;
+			}
+		});
+
+		adjList.compute(destination, (k, v) -> {
+			if (v == null) {
+				List<T> list = new ArrayList<>();
+				list.add(source);
+				return list;
+			} else {
+				v.add(source);
+				return v;
+			}
+		});
+	}
+
 	public void printBfs(T source) {
 		if (source == null) {
 			System.err.println("Source can't be null");
