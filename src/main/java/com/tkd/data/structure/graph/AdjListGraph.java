@@ -15,7 +15,7 @@ public class AdjListGraph<T> {
 	Map<T, List<T>> adjList = new HashedMap<>();
 	Set<T> visitedDp = new HashSet<>();
 
-	public void addEdge(T source, T destination) {
+	public void addDirectedEdge(T source, T destination) {
 		adjList.compute(source, (k, v) -> {
 			if (v == null) {
 				List<T> list = new ArrayList<>();
@@ -28,7 +28,7 @@ public class AdjListGraph<T> {
 		});
 	}
 
-	public void addEdgeUnDirected(T source, T destination) {
+	public void addUnDirectedEdge(T source, T destination) {
 		adjList.compute(source, (k, v) -> {
 			if (v == null) {
 				List<T> list = new ArrayList<>();
