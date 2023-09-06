@@ -1,5 +1,8 @@
 package com.tkd.data.structure.common;
 
+import lombok.ToString;
+
+@ToString
 public class ListNode {
 	public int val;
 	public ListNode next;
