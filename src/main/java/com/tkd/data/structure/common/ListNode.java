@@ -22,8 +22,12 @@ public class ListNode {
 	public void print() {
 		ListNode curr = this;
 		while (curr != null) {
-			System.out.println(curr.val);
+			System.out.print(curr.val);
 			curr = curr.next;
+			if (curr != null) {
+				System.out.print("-->");
+			}
 		}
+		System.out.println();
 	}
 }
