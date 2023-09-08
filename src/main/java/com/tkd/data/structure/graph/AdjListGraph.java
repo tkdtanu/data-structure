@@ -14,6 +14,15 @@ public class AdjListGraph<T> {
 
 	Map<T, List<T>> adjList = new HashedMap<>();
 	Set<T> visitedDp = new HashSet<>();
+	Set<T> edges = new HashSet<>();
+
+	public int getTotalEdgeCount() {
+		return edges.size();
+	}
+
+	public List<T> getAllEdges() {
+		return new ArrayList<T>(adjList.keySet());
+	}
 
 	public void addDirectedEdge(T source, T destination) {
 		adjList.compute(source, (k, v) -> {
@@ -26,30 +35,42 @@ public class AdjListGraph<T> {
 				return v;
 			}
 		});
+		if (source != null) {
+			edges.add(source);
+		}
+		if (destination != null) {
+			edges.add(destination);
+		}
 	}
 
 	public void addUnDirectedEdge(T source, T destination) {
-		adjList.compute(source, (k, v) -> {
-			if (v == null) {
-				List<T> list = new ArrayList<>();
-				list.add(destination);
-				return list;
-			} else {
-				v.add(destination);
-				return v;
-			}
-		});
+		if (source != null) {
+			edges.add(source);
+			adjList.compute(source, (k, v) -> {
+				if (v == null) {
+					List<T> list = new ArrayList<>();
+					list.add(destination);
+					return list;
+				} else {
+					v.add(destination);
+					return v;
+				}
+			});
+		}
+		if (destination != null) {
+			edges.add(destination);
+			adjList.compute(destination, (k, v) -> {
+				if (v == null) {
+					List<T> list = new ArrayList<>();
+					list.add(source);
+					return list;
+				} else {
+					v.add(source);
+					return v;
+				}
+			});
+		}
 
-		adjList.compute(destination, (k, v) -> {
-			if (v == null) {
-				List<T> list = new ArrayList<>();
-				list.add(source);
-				return list;
-			} else {
-				v.add(source);
-				return v;
-			}
-		});
 	}
 
 	public void printBfs(T source) {
