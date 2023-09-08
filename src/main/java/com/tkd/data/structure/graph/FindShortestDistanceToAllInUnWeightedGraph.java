@@ -53,10 +53,10 @@ public class FindShortestDistanceToAllInUnWeightedGraph {
 	}
 
 	private static void findShortedPathUsingBFS(AdjListGraph<Integer> graph, int source) {
-		boolean[] visited = new boolean[graph.getTotalEdgeCount()];
+		boolean[] visited = new boolean[graph.getTotalVertexCount()];
 
 		Map<Integer, Integer> distances = new HashMap<>();
-		graph.getAllEdges().forEach(t -> {
+		graph.getAllVertex().forEach(t -> {
 			distances.put(t, -1);
 		});
 		Map<Integer, List<Integer>> adjList = graph.adjList;
