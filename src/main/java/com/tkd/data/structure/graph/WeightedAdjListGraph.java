@@ -74,7 +74,7 @@ public class WeightedAdjListGraph<T> {
 		}
 		if (destination != null) {
 			vertices.add(destination);
-			adjList.compute(source, (k, v) -> {
+			adjList.compute(destination, (k, v) -> {
 				if (v == null) {
 					List<Edge<T>> list = new ArrayList<>();
 					list.add(new Edge<>(destination, source, weight));
